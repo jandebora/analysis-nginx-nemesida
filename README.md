@@ -9,9 +9,7 @@ Todo este estudio ha sido ejecutado en una máquina CentOS 7 con las siguientes 
 * Release: 7.9.2009
 * Codename: Core
 
-# Instalación
-
-## Instalación Nemesida WAF
+# Instalación Nemesida WAF
 
 En primer lugar seguimos la [guía de instalación](https://nemesida-waf.com/about/1701) del Web Application Firewall Nemesida, especificada aquí también por si la web sufre cambios posteriores:
 
@@ -88,3 +86,19 @@ systemctl status nginx.service nwaf_update.service
 
 **Por comodidad, nuestra máquina CentOS no tiene el PATH apropiado. Hay que añadir /usr/sbin a través del archivo ```.bash_profile```**
 
+# Configuración environment Python3
+
+Con objeto de no cargar nuestra versión de Python de nuestro sistema operativo con librerías indeseadas, vamos a hacer uso de los environments que nos aporta. Para ello tenemos que ejecutar los siguientes comandos para usar e instalar las librerías en nuestro entorno.
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements/requirements
+```
+Una vez hecho esto estaremos preparados para ejecutar nuestros scripts.
+
+Si en algún momento se desea salir del entorno que tenemos activado simplemente tenemos que ejecutar el siguiente comando en nuestra consola:
+
+```bash
+deactivate
+```
