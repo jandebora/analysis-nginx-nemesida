@@ -93,6 +93,7 @@ Con objeto de no cargar nuestra versión de Python de nuestro sistema operativo 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
+pip3 install --upgrade pip
 pip3 install -r requirements/requirements
 ```
 Una vez hecho esto estaremos preparados para ejecutar nuestros scripts.
