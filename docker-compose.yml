@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  nemesida-waf-free:
+    container_name: nemesida-waf
+    image: nemesida/nwaf-dyn-free-1.18:latest
+    ports:
+      - 80:80
+    volumes:
+      - /opt/nwaf/waf-config:/nginx.configs
+      - ./logs:/var/log/nginx
