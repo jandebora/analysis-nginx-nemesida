@@ -2,7 +2,7 @@ import argparse
 from pwn import log
 
 # Constant variables
-DESCRIPTION = "Script that launches some URIs to specific URL"
+DESCRIPTION = "Script that generates a .uri file from a -raw.uri file. This script has been developed in order to work with the dataset provided by the university"
 REQUIRED_ARGS = "required arguments"
 
 INPUT_ARG = "-i"
@@ -21,6 +21,13 @@ URI_LOG_WARN = "WARNING: Unrecognized URI: {} in line {}"
 LOG_INFO_END = "File %s created"
 FILE_NOT_EXISTS_ERROR = "File %s does not exist"
 
+# Functions
+def output_file_def(input, output):
+    if args.output is None:
+        return input.replace(RAW_FILE, "")
+    else:
+        return output.split(URI_FILE)[0] + URI_FILE
+
 # Init parser parameters
 parser = argparse.ArgumentParser(description=DESCRIPTION)
 requiredArguments = parser.add_argument_group(REQUIRED_ARGS)
@@ -29,13 +36,6 @@ requiredArguments.add_argument(INPUT_ARG, help=INPUT_HELP, metavar=INPUT_VARIABL
 parser.add_argument(OUTPUT_ARG, help=OUTPUT_HELP, metavar=OUTPUT_VARIABLE_NAME, \
     dest=OUTPUT_VARIABLE_NAME)
 args = parser.parse_args()
-
-# Functions
-def output_file_def(input, output):
-    if args.output is None:
-        return input.replace(RAW_FILE, "")
-    else:
-        return output.split(URI_FILE)[0] + URI_FILE
 
 # Main
 log.info(LOG_INFO_MAIN_INIT)
