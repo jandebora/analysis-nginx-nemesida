@@ -86,7 +86,7 @@ systemctl status nginx.service nwaf_update.service
 
 **Por comodidad, nuestra máquina CentOS no tiene el PATH apropiado. Hay que añadir /usr/sbin a través del archivo ```.bash_profile```**
 
-## Hacer que Nemesida funcione como un IDS
+## Nemesida como IDS
 Con objeto de no bloquear los ataques y simplemente ver cuales de las urls enviadas serían bloqueadas por las reglas del WAF, vamos a colocar a Nemesida como un IDS, impidiendo los bloqueos.
 
 Para ello simplemente hay que modificar en el archivo ```/etc/nginx/nwaf/conf/global/nwaf.conf``` con el siguiente valor:
@@ -94,6 +94,11 @@ Para ello simplemente hay que modificar en el archivo ```/etc/nginx/nwaf/conf/gl
 ```
 nwaf_limit rate=5r/m block_time=0;
 ```
+
+## Nemesida en docker
+Para configurar nemesida en un contenedor de docker hay que seguir la siguiente guía: [https://nemesida-waf.com/manuals/2685](https://nemesida-waf.com/manuals/2685).
+
+Una vez configurado podemos hacer uso del archivo ```docker-compose.yml``` para ejecutarlo de forma más cómoda.
 
 # Configuración environment Python3
 
