@@ -16,7 +16,7 @@ OUTPUT_VARIABLE_NAME = "output"
 
 URI_FILE = ".uri"
 RAW_FILE = "-raw"
-LOG_INFO_MAIN_INIT = "Generating URI file..."
+LOG_INFO_MAIN = "Generating URI file..."
 URI_LOG_WARN = "WARNING: Unrecognized URI: {} in line {}"
 LOG_INFO_END = "File %s created"
 FILE_NOT_EXISTS_ERROR = "File %s does not exist"
@@ -38,7 +38,7 @@ parser.add_argument(OUTPUT_ARG, help=OUTPUT_HELP, metavar=OUTPUT_VARIABLE_NAME, 
 args = parser.parse_args()
 
 # Main
-log.info(LOG_INFO_MAIN_INIT)
+log.info(LOG_INFO_MAIN)
 output_file_name = output_file_def(args.input, args.output)
 
 file_out = open(output_file_name, 'a')

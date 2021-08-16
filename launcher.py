@@ -22,7 +22,7 @@ FILE_HELP = "File that contains some URIs to launch. This file must be formatted
     By default: '%s'" % FILE_DEFAULT
 FILE_VARIABLE_NAME = "file_location"
 
-LOG_INFO_MAIN_INIT = "Sending attacks to %s"
+LOG_INFO_MAIN = "Sending attacks to {} on port {}"
 LOG_PROGRESS_FILE = "File line number"
 LOG_PROGRESS_URL = "Launching URL"
 LOG_INFO_MAIN_END = "File successfully launched."
@@ -39,17 +39,22 @@ parser.add_argument(FILE_ARG, help=FILE_HELP, default=FILE_DEFAULT, metavar=FILE
 args = parser.parse_args()
 
 # Main 
-log.info(LOG_INFO_MAIN_INIT % args.url)
+log.info(LOG_INFO_MAIN.format(args.url, args.port))
 progress_file = log.progress(LOG_PROGRESS_FILE)
 progress_url_launch = log.progress(LOG_PROGRESS_URL)
+
+url = args.url
+if args.port != PORT_DEFAULT:
+    url = args.url + ":" + str(args.port)
+
 try:
     with open(args.file_location, 'r') as file:
         count = 0
         for line in file:
             progress_file.status("%s" % count)
             progress_url_launch.status("%s" % line)
-            encoded_url = parse.quote(line)
-            requests.get(args.url + encoded_url, verify=False, timeout=1)
+            encoded_uri = parse.quote(line)
+            requests.get(url + encoded_uri, verify=False, timeout=1)
             count += 1
     file.close()
     log.info(LOG_INFO_MAIN_END)
