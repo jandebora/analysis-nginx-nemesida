@@ -2,6 +2,7 @@ import requests
 import argparse
 from urllib import parse
 from pwn import log
+import re
 
 # Constant variables
 DESCRIPTION = "Script that launches some URIs to specific URL"
@@ -25,7 +26,7 @@ FILE_VARIABLE_NAME = "file_location"
 LOG_INFO_MAIN = "Sending attacks to {} on port {}"
 LOG_PROGRESS_FILE = "File line number"
 LOG_PROGRESS_URL = "Launching URL"
-LOG_INFO_MAIN_END = "File successfully launched."
+LOG_INFO_MAIN_END = "File successfully launched"
 FILE_NOT_EXISTS_ERROR = "File %s does not exist"
 
 # Init parser parameters
@@ -51,9 +52,10 @@ try:
     with open(args.file_location, 'r') as file:
         count = 0
         for line in file:
+            line_without_line_break = re.sub(r'\n$', '', line)
             progress_file.status("%s" % count)
-            progress_url_launch.status("%s" % line)
-            encoded_uri = parse.quote(line)
+            progress_url_launch.status("%s" % line_without_line_break)
+            encoded_uri = parse.quote(line_without_line_break)
             requests.get(url + encoded_uri, verify=False, timeout=1)
             count += 1
     file.close()
