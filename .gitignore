@@ -130,3 +130,9 @@ dmypy.json
 
 # Docker compose logging
 logs/
+
+# Generated files and folders
+/data
+.clean
+.index
+.attacks
