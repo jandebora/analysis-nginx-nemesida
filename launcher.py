@@ -1,10 +1,28 @@
+"""Script that launches some URIs to specific URL.
+
+Usage: launcher.py [-h] [-u url] [-p port] [-f file_location]
+
+optional arguments:
+  -h, --help        show this help message and exit
+  -u url            URL protected by Nemesida WAF specified in NGINX
+                    configuration file. By default: 'http://localhost'
+  -p port           Specific port to launch the URIs from the file. By
+                    default: '80'
+  -f file_location  File that contains some URIs to launch. This file must be
+                    formatted previously. By default: 'default_file.uri'
+
+Author: Carlos Cagigao Bravo
+"""
+
 import requests
 import argparse
 from urllib import parse
 from pwn import log
 import re
 
+# =====================================
 # Constant variables
+# =====================================
 DESCRIPTION = "Script that launches some URIs to specific URL"
 
 URL_ARG = "-u"
@@ -29,36 +47,60 @@ LOG_PROGRESS_URL = "Launching URL"
 LOG_INFO_MAIN_END = "File launched successfully"
 FILE_NOT_EXISTS_ERROR = "File %s does not exist"
 
-# Init parser parameters
-parser = argparse.ArgumentParser(description=DESCRIPTION)
-parser.add_argument(URL_ARG, help=URL_HELP, default=URL_DEFAULT, metavar=URL_VARIABLE_NAME, \
-    dest=URL_VARIABLE_NAME)
-parser.add_argument(PORT_ARG, help=PORT_HELP, default=PORT_DEFAULT, metavar=PORT_VARIABLE_NAME, \
-     dest=PORT_VARIABLE_NAME, type=int)
-parser.add_argument(FILE_ARG, help=FILE_HELP, default=FILE_DEFAULT, metavar=FILE_VARIABLE_NAME, \
-    dest=FILE_VARIABLE_NAME)
-args = parser.parse_args()
+# =====================================
+# Functions
+# =====================================
+def init_parser():
+    """Retrieves the parameters with which it has been executed
 
-# Main 
-log.info(LOG_INFO_MAIN.format(args.url, args.port))
-progress_file = log.progress(LOG_PROGRESS_FILE)
-progress_url_launch = log.progress(LOG_PROGRESS_URL)
+    :rtype: list of arguments
+    :return: retrieved arguments
+    """
+    parser = argparse.ArgumentParser(description=DESCRIPTION)
+    parser.add_argument(URL_ARG, help=URL_HELP, default=URL_DEFAULT, metavar=URL_VARIABLE_NAME, \
+        dest=URL_VARIABLE_NAME)
+    parser.add_argument(PORT_ARG, help=PORT_HELP, default=PORT_DEFAULT, metavar=PORT_VARIABLE_NAME, \
+        dest=PORT_VARIABLE_NAME, type=int)
+    parser.add_argument(FILE_ARG, help=FILE_HELP, default=FILE_DEFAULT, metavar=FILE_VARIABLE_NAME, \
+        dest=FILE_VARIABLE_NAME)
+    return parser.parse_args()
 
-url = args.url
-if args.port != PORT_DEFAULT:
-    url = args.url + ":" + str(args.port)
+def main():
+    """Main function.
+    
+    Launches the uris contained in file to specific url retrieved on launch parameters.
 
-try:
-    with open(args.file_location, 'r') as file:
-        count = 0
-        for line in file:
-            line_without_line_break = re.sub(r'\n$', '', line)
-            progress_file.status("%s" % count)
-            progress_url_launch.status("%s" % line_without_line_break)
-            encoded_uri = parse.quote(line_without_line_break)
-            requests.get(url + encoded_uri, verify=False, timeout=1)
-            count += 1
-    file.close()
-    log.info(LOG_INFO_MAIN_END)
-except FileNotFoundError:
-    log.error(FILE_NOT_EXISTS_ERROR % args.file_location)
+    All uris are encoded before launch and all line break contained at the end of each line 
+    of the file will be deleted
+
+    :raises FileNotFoundError: if file does not exists
+    """
+    args = init_parser()
+    log.info(LOG_INFO_MAIN.format(args.url, args.port))
+    progress_file = log.progress(LOG_PROGRESS_FILE)
+    progress_url_launch = log.progress(LOG_PROGRESS_URL)
+
+    url = args.url
+    if args.port != PORT_DEFAULT:
+        url = args.url + ":" + str(args.port)
+
+    try:
+        with open(args.file_location, 'r') as file:
+            count = 0
+            for line in file:
+                line_without_line_break = re.sub(r'\n$', '', line)
+                progress_file.status("%s" % count)
+                progress_url_launch.status("%s" % line_without_line_break)
+                encoded_uri = parse.quote(line_without_line_break)
+                requests.get(url + encoded_uri, verify=False, timeout=1)
+                count += 1
+        file.close()
+        log.info(LOG_INFO_MAIN_END)
+    except FileNotFoundError:
+        log.error(FILE_NOT_EXISTS_ERROR % args.file_location)
+
+# =====================================
+# Main
+# =====================================
+if __name__ == "__main__":
+    main()
