@@ -35,8 +35,10 @@ OUTPUT_VARIABLE_NAME = "output"
 
 URI_FILE = ".uri"
 RAW_FILE = "-raw"
+WARN_FILE = "generator.warn"
 LOG_INFO_MAIN = "Generating URI file..."
-URI_LOG_WARN = "WARNING: Unrecognized URI: {} in line {}"
+URI_LOG_WARN = "WARNING: Unrecognized uris detected. Check {} file".format(WARN_FILE)
+URI_WARN = "WARNING: In line {}\tUnrecognized URI: {}"
 LOG_INFO_END = "File %s created"
 FILE_NOT_EXISTS_ERROR = "File %s does not exist"
 
@@ -112,6 +114,8 @@ def main(args):
     output_file_name = output_file_def(args.input, args.output)
 
     file_out = open(output_file_name, 'w')
+    file_warn = open(WARN_FILE, 'w')
+    exist_warnings = False
     try:
         with open(args.input, 'r', encoding='ISO-8859-1', errors='ignore') as file:
             count = 1
@@ -121,10 +125,15 @@ def main(args):
                     line_parsed = line[first_spacebar:]
                     file_out.write(line_parsed)
                 else:
-                    log.warn(URI_LOG_WARN.format(line, count))
+                    exist_warnings = True
+                    file_warn.write(URI_WARN.format(count, line))
                 count += 1
             file.close()
         file_out.close()
+        file_warn.close()
+        if exist_warnings:
+            log.warn(URI_LOG_WARN)
+
     except FileNotFoundError:
         log.error(FILE_NOT_EXISTS_ERROR % args.file_location)
 
