@@ -58,7 +58,6 @@ ANALYSIS_CLEAN_NAME = "analysis-%s.clean"
 ANALYSIS_FILE_LOG_START = "Starting analysis for {} file"
 ANALYSIS_FILE_LOG_END = "Analysis finished for {} file"
 FILES_GENERATED = "Files {} and {} generated"
-ANALYSIS_ERROR_END_START = "Added number of attacks to file {}"
 END_MAIN = "Analysis completed successfully"
 
 INDEX_FILE_LINE = "{}\tUri {}\tRequestID {}\tNattacks\n"
@@ -196,8 +195,8 @@ def access_log_analysis(access_log_arg, index_file_name, clean_file_name):
     detected_uris = log.progress(DETECTED)
     undetected_uris = log.progress(UNDETECTED)
 
-    clean_file = open(clean_file_name, 'a')
-    index_file = open(index_file_name, 'a')
+    clean_file = open(clean_file_name, 'w')
+    index_file = open(index_file_name, 'w')
     with open(access_log_arg, encoding='ISO-8859-1', errors='ignore') as log_file:
         detected_count = 0
         undetected_count = 0
@@ -272,7 +271,6 @@ def error_log_analysis(error_log_arg, index_file_name):
         index_file_count += 1
     fileinput.close()
     error_log.close()
-    log.info(ANALYSIS_ERROR_END_START.format(index_file_name))
     log.info(ANALYSIS_FILE_LOG_END.format(error_log_arg))
 
 def main(args):
