@@ -79,7 +79,7 @@ def add_required_arguments(required_arguments_group):
     :type required_arguments_group: ArgumentParser.add_argument_group()
     """
     required_arguments_group.add_argument(FILE_ARG, help=FILE_HELP, metavar=FILE_VARIABLE_NAME, \
-        dest=FILE_VARIABLE_NAME)
+        dest=FILE_VARIABLE_NAME, required=True)
 
 def main(args):
     """Main function.
