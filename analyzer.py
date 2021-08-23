@@ -43,8 +43,8 @@ ACCESS_LOG_VARIABLE_NAME = "access_log"
 
 IDENTIFIER_LOG_ARG = "-id"
 IDENTIFIER_LOG_DEFAULT = int(datetime.timestamp(datetime.now()))
-IDENTIFIER_LOG_HELP = "Numeric value added to idenfity generated files. By default is the current timestamp: %s" \
-    % IDENTIFIER_LOG_DEFAULT
+IDENTIFIER_LOG_HELP = "Numeric value added to idenfity generated files"
+IDENTIFIER_LOG_HELP_DEFAULT = ". By default is the current timestamp: %s" % IDENTIFIER_LOG_DEFAULT
 IDENTIFIER_LOG_VARIABLE_NAME = "id"
 
 INFO_MAIN = "Starting analysis..."
@@ -93,7 +93,8 @@ def add_optional_arguments(parser, id_required):
         metavar=ACCESS_LOG_VARIABLE_NAME, dest=ACCESS_LOG_VARIABLE_NAME)
 
     if not id_required:
-        parser.add_argument(IDENTIFIER_LOG_ARG, help=IDENTIFIER_LOG_HELP, default=IDENTIFIER_LOG_DEFAULT, \
+        help_string = IDENTIFIER_LOG_HELP + IDENTIFIER_LOG_HELP_DEFAULT
+        parser.add_argument(IDENTIFIER_LOG_ARG, help=help_string, default=IDENTIFIER_LOG_DEFAULT, \
         dest=IDENTIFIER_LOG_VARIABLE_NAME, metavar=IDENTIFIER_LOG_VARIABLE_NAME, type=int)
 
 def add_required_arguments(required_arguments_group):
