@@ -67,18 +67,35 @@ def output_file_def(input, output):
 def init_parser():
     """Retrieves the parameters with which it has been executed
 
-    :rtype: list of arguments
-    :return: retrieved arguments
+    :rtype: ArgumentParser
+    :return: arguments prepared to be parsed
     """
     parser = argparse.ArgumentParser(description=DESCRIPTION)
-    requiredArguments = parser.add_argument_group(REQUIRED_ARGS)
-    requiredArguments.add_argument(INPUT_ARG, help=INPUT_HELP, metavar=INPUT_VARIABLE_NAME, \
-        dest=INPUT_VARIABLE_NAME, required=True)
+    required_arguments = parser.add_argument_group(REQUIRED_ARGS)
+    add_optional_arguments(parser)
+    add_required_arguments(required_arguments)
+    return parser
+
+def add_optional_arguments(parser):
+    """Add optional arguments to parser
+
+    :param parser: parser to add arguments
+    :type parser: ArgumentParser
+    """
     parser.add_argument(OUTPUT_ARG, help=OUTPUT_HELP, metavar=OUTPUT_VARIABLE_NAME, \
         dest=OUTPUT_VARIABLE_NAME)
-    return parser.parse_args()
 
-def main():
+def add_required_arguments(required_arguments_group):
+    """Add required arguments to argument parser group created and added previosly to the parser parent
+
+    :param required_arguments_group: group added to ArgumentParser
+    :type required_arguments_group: ArgumentParser.add_argument_group()
+    """
+    required_arguments_group.add_argument(INPUT_ARG, help=INPUT_HELP, metavar=INPUT_VARIABLE_NAME, \
+        dest=INPUT_VARIABLE_NAME, required=True)
+
+
+def main(args):
     """Main function.
     
     Parses the raw uri file and generates a new file without 
@@ -86,9 +103,11 @@ def main():
 
     If the line does not contains '/' or is an invalid URI, a warning log will be shown
 
+    :param args: command-line retrieved arguments
+    :type args: ArgumentParser.parse_args()
+
     :raises FileNotFoundError: if file does not exists
     """
-    args = init_parser()
     log.info(LOG_INFO_MAIN)
     output_file_name = output_file_def(args.input, args.output)
 
@@ -115,4 +134,5 @@ def main():
 # Main
 # =====================================
 if __name__ == "__main__":
-    main()
+    args = init_parser().parse_args()
+    main(args)

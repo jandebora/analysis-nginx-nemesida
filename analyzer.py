@@ -28,7 +28,6 @@ import fileinput
 # =====================================
 DESCRIPTION = "Script that parses Nemesida log files and generates a .index and .clean files recovering necessary \
     information to the research."
-REQUIRED_ARGS = "required arguments"
 
 ERROR_LOG_ARG = "-e"
 ERROR_LOG_DEFAULT = "/var/log/nginx/error.log"
@@ -72,17 +71,40 @@ INDEX_NATTACKS_LINE = "\t{}"
 def init_parser():
     """Retrieves the parameters with which it has been executed
 
-    :rtype: list of arguments
-    :return: retrieved arguments
+    :rtype: ArgumentParser
+    :return: arguments prepared to be parsed
     """
     parser = argparse.ArgumentParser(description=DESCRIPTION)
+    add_optional_arguments(parser, False)
+    return parser
+
+def add_optional_arguments(parser, id_required):
+    """Add optional arguments to parser
+
+    If id is not required add it to optional
+
+    :param parser: parser to add arguments
+    :type parser: ArgumentParser
+    :param id_required: if id is required or not
+    :type id_required: boolean
+    """
     parser.add_argument(ERROR_LOG_ARG, help=ERROR_LOG_HELP, default=ERROR_LOG_DEFAULT, \
         metavar=ERROR_LOG_VARIABLE_NAME, dest=ERROR_LOG_VARIABLE_NAME)
     parser.add_argument(ACCESS_LOG_ARG, help=ACCESS_LOG_HELP, default=ACCESS_LOG_DEFAULT, \
         metavar=ACCESS_LOG_VARIABLE_NAME, dest=ACCESS_LOG_VARIABLE_NAME)
-    parser.add_argument(IDENTIFIER_LOG_ARG, help=IDENTIFIER_LOG_HELP, default=IDENTIFIER_LOG_DEFAULT, \
+
+    if not id_required:
+        parser.add_argument(IDENTIFIER_LOG_ARG, help=IDENTIFIER_LOG_HELP, default=IDENTIFIER_LOG_DEFAULT, \
         dest=IDENTIFIER_LOG_VARIABLE_NAME, metavar=IDENTIFIER_LOG_VARIABLE_NAME, type=int)
-    return parser.parse_args()
+
+def add_required_arguments(required_arguments_group):
+    """Add required arguments to argument parser group created and added previosly to the parser parent
+
+    :param required_arguments_group: group added to ArgumentParser
+    :type required_arguments_group: ArgumentParser.add_argument_group()
+    """
+    required_arguments_group.add_argument(IDENTIFIER_LOG_ARG, help=IDENTIFIER_LOG_HELP, default=IDENTIFIER_LOG_DEFAULT, \
+        dest=IDENTIFIER_LOG_VARIABLE_NAME, metavar=IDENTIFIER_LOG_VARIABLE_NAME, type=int, required=True)
 
 def check_files(access_log_path, error_log_path):
     """Check for indicated files existence
@@ -219,7 +241,7 @@ def error_log_analysis(error_log_arg, index_file_name):
     error_log = open(error_log_arg, encoding='ISO-8859-1', errors='ignore')
     error_line = error_log.readline()
     index_file_count = 1
-    for index_line in fileinput.input(index_file_name, inplace=True, backup='.bak'):
+    for index_line in fileinput.input(index_file_name, inplace=True):
         number_of_attacks.status("%s" % index_file_count)
         
         result_index = index_log_cp.search(index_line)
@@ -253,13 +275,15 @@ def error_log_analysis(error_log_arg, index_file_name):
     log.info(ANALYSIS_ERROR_END_START.format(index_file_name))
     log.info(ANALYSIS_FILE_LOG_END.format(error_log_arg))
 
-def main():
+def main(args):
     """Main function.
     
     Executes analysis for access log and error log adding some log info 
     before and after the process.
+
+    :param args: command-line retrieved arguments
+    :type args: ArgumentParser.parse_args()
     """
-    args = init_parser()
     check_files(args.access_log, args.error_log)
     file_identifier = args.id
     index_file_name = ANALYSIS_INDEX_FILE % file_identifier
@@ -274,4 +298,5 @@ def main():
 # Main
 # =====================================
 if __name__ == "__main__":
-    main()
+    args = init_parser().parse_args()
+    main(args)
