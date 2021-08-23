@@ -92,7 +92,7 @@ def main(args):
     :param args: command-line retrieved arguments
     :type args: ArgumentParser.parse_args()
 
-    :raises FileNotFoundError: if file does not exists
+    :raises FileNotFoundError: if file does not exist
     """
     log.info(LOG_INFO_MAIN.format(args.url, args.port))
     progress_file = log.progress(LOG_PROGRESS_FILE)

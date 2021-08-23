@@ -108,7 +108,7 @@ def main(args):
     :param args: command-line retrieved arguments
     :type args: ArgumentParser.parse_args()
 
-    :raises FileNotFoundError: if file does not exists
+    :raises FileNotFoundError: if file does not exist
     """
     log.info(LOG_INFO_MAIN)
     output_file_name = output_file_def(args.input, args.output)

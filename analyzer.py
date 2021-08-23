@@ -103,13 +103,13 @@ def add_required_arguments(required_arguments_group):
     :param required_arguments_group: group added to ArgumentParser
     :type required_arguments_group: ArgumentParser.add_argument_group()
     """
-    required_arguments_group.add_argument(IDENTIFIER_LOG_ARG, help=IDENTIFIER_LOG_HELP, default=IDENTIFIER_LOG_DEFAULT, \
+    required_arguments_group.add_argument(IDENTIFIER_LOG_ARG, help=IDENTIFIER_LOG_HELP, \
         dest=IDENTIFIER_LOG_VARIABLE_NAME, metavar=IDENTIFIER_LOG_VARIABLE_NAME, type=int, required=True)
 
 def check_files(access_log_path, error_log_path):
     """Check for indicated files existence
 
-    :raises PwnlibException: if file does not exists
+    :raises PwnlibException: if file does not exist
     """
     if not path.isfile(access_log_path):
         log.error(FILE_NOT_EXISTS_ERROR % access_log_path)
