@@ -86,7 +86,7 @@ def main(args):
     clean_line_numbers = subprocess.check_output(['wc', '-l', clean_file_name]).__str__()
     clean_line_numbers = clean_line_numbers.split(' ')[0].replace("b'", "")
     uri_line_numbers = subprocess.check_output(['wc', '-l', args.file_location]).__str__()
-    uri_line_numbers = uri_line_numbers.split(' ')[0].replace("b'", "")
+    uri_line_numbers = int(uri_line_numbers.split(' ')[0].replace("b'", "")) + 1
 
     header = ATTACKS_FILE_HEADER.format(uri_line_numbers, clean_line_numbers, index_line_numbers)
     file_attacks = open(attacks_file_name, 'w')
