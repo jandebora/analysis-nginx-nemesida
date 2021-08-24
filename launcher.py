@@ -14,9 +14,8 @@ optional arguments:
 Author: Carlos Cagigao Bravo
 """
 
-import requests
 import argparse
-from urllib import parse
+from urllib import parse, request, error
 from pwn import log
 import re
 
@@ -104,14 +103,18 @@ def main(args):
 
     try:
         with open(args.file_location, 'r') as file:
-            count = 0
+            count = 1
             for line in file:
-                line_without_line_break = re.sub(r'\n$', '', line)
-                progress_file.status("%s" % count)
-                progress_url_launch.status("%s" % line_without_line_break)
-                encoded_uri = parse.quote(line_without_line_break)
-                requests.get(url + encoded_uri, verify=False, timeout=1)
-                count += 1
+                try:
+                    line_without_line_break = re.sub(r'\n$', '', line)
+                    progress_file.status("%s" % count)
+                    progress_url_launch.status("%s" % line_without_line_break)
+                    encoded_uri = parse.quote(line_without_line_break, safe="/:=?&")
+                    request.urlopen(url + encoded_uri, timeout=1)
+                    count += 1
+                except error.HTTPError:
+                    count += 1
+                    pass
         file.close()
         log.info(LOG_INFO_MAIN_END)
     except FileNotFoundError:
