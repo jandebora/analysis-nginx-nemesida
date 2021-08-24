@@ -65,3 +65,128 @@ Si en algún momento se desea salir del entorno que tenemos activado simplemente
 ```bash
 deactivate
 ```
+
+# Funcionamiento
+
+## Todo en uno: start.py
+
+```
+Script that launches all parts of Nemesida WAF Analysis, in order: generator,
+launcher, analyzer, comparer
+
+Usage: start.py [-h] [-o output] [-u url] [-p port] [-e error_log]
+                [-a access_log] -i input -f file_location -id id
+
+optional arguments:
+  -h, --help        show this help message and exit
+  -o output         Output file parsed with specifics uris every line break.
+                    By default: ''input_file_name'.uri'
+  -u url            URL protected by Nemesida WAF specified in NGINX
+                    configuration file. By default: 'http://localhost'
+  -p port           Specific port to launch the URIs from the file. By
+                    default: '80'
+  -e error_log      Nginx error log file which contains information about
+                    Nemesida blocked urls. By default:
+                    /var/log/nginx/error.log
+  -a access_log     Nginx access log file which contains information about
+                    access to the server. By default:
+                    /var/log/nginx/access.log
+
+required arguments:
+  -i input          Input file to be parsed in RAW format (fileName-raw.uri)
+  -f file_location  File that contains some URIs to launch. This file must be
+                    formatted previously
+  -id id            Numeric value added to idenfity generated files
+```
+
+Ejemplo de uso típico:
+
+```
+python start.py -i 0days100-raw.uri -f 0days100.uri -id 123456 -e logs/error.log -a logs/access.log
+```
+
+## Generador de fichero .uri: generator.py
+
+```
+Script that generates a .uri file from a -raw.uri file. This script has been
+developed in order to work with the dataset provided by the university
+
+Usage: generator.py [-h] -i input [-o output]
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -o output   Output file parsed with specifics uris every line break. By
+              default: ''input_file_name'.uri'
+
+required arguments:
+  -i input    Input file to be parsed in RAW format (fileName-raw.uri)
+```
+
+Ejemplo de uso:
+
+``` 
+python generator.py -i 0days-raw.uri
+```
+
+## Lanzador de URIs: launcher.py
+```
+Script that launches some URIs to specific URL.
+
+Usage: launcher.py [-h] [-u url] [-p port] [-f file_location]
+
+optional arguments:
+  -h, --help        show this help message and exit
+  -u url            URL protected by Nemesida WAF specified in NGINX
+                    configuration file. By default: 'http://localhost'
+  -p port           Specific port to launch the URIs from the file. By
+                    default: '80'
+  -f file_location  File that contains some URIs to launch. This file must be
+                    formatted previously. By default: 'default_file.uri'
+```
+
+Ejemplo de uso:
+```
+python launcher.py -f 0days.uri
+```
+
+## Analizador de logs: analyzer.py
+```
+Script that parses Nemesida log files and generates a .index and .clean files
+recovering necessary information to the research.
+
+Usage: analyzer.py [-h] [-e error_log] [-a access_log] [-id id]
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -e error_log   Nginx error log file which contains information about
+                 Nemesida blocked urls. By default: /var/log/nginx/error.log
+  -a access_log  Nginx access log file which contains information about access
+                 to the server. By default: /var/log/nginx/access.log
+  -id id         Numeric value added to idenfity generated files. By default
+                 is the current timestamp: ${current_timestamp}
+```
+
+Ejemplo de uso:
+```
+python analyzer.py -e logs/error.log -a logs/access.log -id 123456789
+```
+
+## Comparador de ficheros del análisis: comparer.py
+```
+Script that creates .attacks file from .index, .clean and .uri files
+
+Usage: comparer.py [-h] -f file_location -id id
+
+optional arguments:
+  -h, --help        show this help message and exit
+
+required arguments:
+  -f file_location  File that contains some URIs to launch. This file must be
+                    formatted previously
+  -id id            Numeric value added to idenfity generated files
+```
+
+Ejemplo de uso:
+```
+python comparer.py -f 0days100.uri -id 123456789 
+```
