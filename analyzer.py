@@ -125,14 +125,12 @@ def get_access_log_compiled_pattern():
     Example of valid pattern:
         '[17/Aug/2021:19:27:10 +0200] '
         '"GET /wp-admin/admin-ajax.php HTTP/1.1" '
-        '403 153 "-" "python-requests/2.26.0" "-" '
         '"request_id":"e90f9480d500cad488650afb3a73c854"'
     """
     return re.compile(
         r'(?P<timestamp>\[\d{2}\/\w{3}\/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4}\]) '
         r'\"GET (?P<uri>.+) HTTP\/1\.1\" '
         r'(?P<http_status>\d{3}) .+ '
-        r'\"python-requests.+ '
         r'"request_id\":\"(?P<id>[a-zA-Z0-9]+)\"'
     )
 
@@ -202,8 +200,6 @@ def access_log_analysis(access_log_arg, index_file_name, clean_file_name):
         detected_count = 0
         undetected_count = 0
         for line in log_file:
-            detected_uris.status("%s" % detected_count)
-            undetected_uris.status("%s" % undetected_count)
             result = access_log_cp.search(line)
             if result is not None:
                 uri = result.group('uri')
@@ -213,9 +209,11 @@ def access_log_analysis(access_log_arg, index_file_name, clean_file_name):
                     request_id = result.group('id')
                     index_file.write(INDEX_FILE_LINE.format(timestamp, decoded_uri, request_id))
                     detected_count += 1
+                    detected_uris.status("%s" % detected_count)
                 else:
                     clean_file.write(CLEAN_FILE_LINE.format(decoded_uri))
                     undetected_count += 1
+                    undetected_uris.status("%s" % undetected_count)
     log_file.close()
     clean_file.close()
     index_file.close()
