@@ -177,6 +177,41 @@ def add_string_from_index(str, index, str_add):
     """
     return str[:index] + str_add + str[index:]
 
+def create_list_of_file_pos(file):
+    """Creates a list of file positions in order to use file.seek(position)
+    to access concrete lines into the file with distinct length between lines
+
+    :param file: previosly opened file
+    :type file: file in read mode
+
+    :return: list of positions
+    :rtype: list
+    """
+    list_pos = list()
+    pos = 0
+    length = 0
+    for each in file:
+        list_pos.append(length)
+        length = length + len(each)
+        pos += 1
+    
+    return list_pos
+
+def give_file_line_by_pos(file, pos):
+    """Return specific file line by position with file.seek(position)
+
+    :param file: previosly opened file
+    :type file: file in read mode
+    :param pos: position in the file (to use with file.seek())
+    :type pos: int
+
+    :return: file line
+    :rtype: string
+    """
+    file.seek(pos)
+
+    return file.readline()
+
 
 def access_log_analysis(access_log_arg, index_file_name, clean_file_name):
     """Analyzes the access log file and creates a completed .clean file and uncompleted .index file.
@@ -235,36 +270,39 @@ def error_log_analysis(error_log_arg, index_file_name):
     index_log_cp = get_index_log_compiled_pattern()
     error_log_cp = get_error_log_compiled_pattern()
 
-
     error_log = open(error_log_arg, encoding='ISO-8859-1', errors='ignore')
-    error_line = error_log.readline()
+    list_pos = create_list_of_file_pos(error_log)
+    list_length = len(list_pos)
     index_file_count = 1
     for index_line in fileinput.input(index_file_name, inplace=True):
         number_of_attacks.status("%s" % index_file_count)
         
         result_index = index_log_cp.search(index_line)
         request_id = result_index.group('id')
-        nattacks_end_position = result_index.end()
-        
+
+        count_file_idx = 0
         searching_id = True
         id_not_changed = True
         nattacks_line = index_line
-        while error_line and id_not_changed:
+        while count_file_idx < list_length and id_not_changed:
+            error_line = give_file_line_by_pos(error_log, list_pos[count_file_idx])
             result_error = error_log_cp.search(error_line)
             if result_error is not None:
-                request_id_error_log = result_error.group('id')
+                request_id_error = result_error.group('id')
                 rule_id = result_error.group('rule_id')
-                if request_id == request_id_error_log:
-                    nattacks_line = add_string_from_index(nattacks_line, nattacks_end_position, \
+                if request_id  == request_id_error:
+                    nattacks_line = add_string_from_index(nattacks_line, result_index.end(), \
                         INDEX_NATTACKS_LINE.format(rule_id))
+                    list_pos.pop(count_file_idx)
+                    list_length -= 1
                     searching_id = False
-                    error_line = error_log.readline()
                 elif not searching_id:
                     id_not_changed = False
                 else:
-                    error_line = error_log.readline()
+                    count_file_idx += 1
             else:
-                error_line = error_log.readline()
+                list_pos.pop(count_file_idx)
+                list_length -= 1
         if len(nattacks_line) > len(index_line):
             print(nattacks_line, end='')
         index_file_count += 1
