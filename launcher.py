@@ -9,7 +9,7 @@ optional arguments:
   -p port           Specific port to launch the URIs from the file. By
                     default: '80'
   -f file_location  File that contains some URIs to launch. This file must be
-                    formatted previously. By default: 'default_file.uri'
+                    formatted previously.
 
 Author: Carlos Cagigao Bravo
 """
