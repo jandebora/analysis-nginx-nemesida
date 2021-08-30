@@ -60,9 +60,10 @@ ANALYSIS_FILE_LOG_END = "Analysis finished for {} file"
 FILES_GENERATED = "Files {} and {} generated"
 END_MAIN = "Analysis completed successfully"
 
-INDEX_FILE_LINE = "{}\tUri {}\tRequestID {}\tNattacks\n"
+INDEX_FILE_LINE = "{}\tUri [{}]\tRequestID [{}]\tBT [{}]\tNattacks\n"
 CLEAN_FILE_LINE = "{}\n"
-INDEX_NATTACKS_LINE = "\t{}"
+INDEX_NATTACKS_LINE = "\t[{}]"
+NATTACKS_COUNT = " [{}]"
 
 # =====================================
 # Functions
@@ -125,13 +126,15 @@ def get_access_log_compiled_pattern():
     Example of valid pattern:
         '[17/Aug/2021:19:27:10 +0200] '
         '"GET /wp-admin/admin-ajax.php HTTP/1.1" '
-        '"request_id":"e90f9480d500cad488650afb3a73c854"'
+        '"request_id":"e90f9480d500cad488650afb3a73c854" '
+        '"block_type":2'
     """
     return re.compile(
         r'(?P<timestamp>\[\d{2}\/\w{3}\/\d{4}:\d{2}:\d{2}:\d{2} \+\d{4}\]) '
         r'\"GET (?P<uri>.+) HTTP\/1\.1\" '
         r'(?P<http_status>\d{3}) .+ '
-        r'"request_id\":\"(?P<id>[a-zA-Z0-9]+)\"'
+        r'"request_id\":\"(?P<id>[a-zA-Z0-9]+)\" '
+        r'"block_type":(?P<bt>\d)'
     )
 
 def get_error_log_compiled_pattern():
@@ -160,7 +163,8 @@ def get_index_log_compiled_pattern():
         'Nattacks'
     """
     return re.compile(
-        r'RequestID (?P<id>[a-zA-Z0-9]+)'
+        r'RequestID \[(?P<id>[a-zA-Z0-9]+)\]'
+        r'\tBT \[\d\]'
         r'\t(?P<nattacks>Nattacks)'
     )
 
@@ -242,7 +246,8 @@ def access_log_analysis(access_log_arg, index_file_name, clean_file_name):
                 if result.group('http_status') == '403':
                     timestamp = result.group('timestamp')
                     request_id = result.group('id')
-                    index_file.write(INDEX_FILE_LINE.format(timestamp, decoded_uri, request_id))
+                    block_type = result.group('bt')
+                    index_file.write(INDEX_FILE_LINE.format(timestamp, decoded_uri, request_id, block_type))
                     detected_count += 1
                     detected_uris.status("%s" % detected_count)
                 else:
@@ -284,6 +289,7 @@ def error_log_analysis(error_log_arg, index_file_name):
         searching_id = True
         id_not_changed = True
         nattacks_line = index_line
+        nattacks_count = 0
         while count_file_idx < list_length and id_not_changed:
             error_line = give_file_line_by_pos(error_log, list_pos[count_file_idx])
             result_error = error_log_cp.search(error_line)
@@ -296,6 +302,7 @@ def error_log_analysis(error_log_arg, index_file_name):
                     list_pos.pop(count_file_idx)
                     list_length -= 1
                     searching_id = False
+                    nattacks_count += 1
                 elif not searching_id:
                     id_not_changed = False
                 else:
@@ -304,6 +311,8 @@ def error_log_analysis(error_log_arg, index_file_name):
                 list_pos.pop(count_file_idx)
                 list_length -= 1
         if len(nattacks_line) > len(index_line):
+            nattacks_line = add_string_from_index(nattacks_line, result_index.end(), \
+                NATTACKS_COUNT.format(nattacks_count))
             print(nattacks_line, end='')
         index_file_count += 1
     fileinput.close()
