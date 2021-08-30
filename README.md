@@ -13,8 +13,6 @@ Todo este estudio ha sido ejecutado en una máquina CentOS 7 con las siguientes 
 
 En primer lugar seguimos la [guía de instalación](https://nemesida-waf.com/about/1701) del Web Application Firewall Nemesida.
 
-**Por comodidad, nuestra máquina CentOS no tiene el PATH apropiado. Hay que añadir /usr/sbin a través del archivo ```.bash_profile```**
-
 ## Nemesida como IDS
 Con objeto de no bloquear los ataques y simplemente ver cuales de las urls enviadas serían bloqueadas por las reglas del WAF, vamos a colocar a Nemesida como un IDS, impidiendo los bloqueos.
 
@@ -33,7 +31,7 @@ http {
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for" ' 
-                      '"request_id":"$request_id"';
+                      '"request_id":"$request_id" "block_type":$nwaf_block_type';
 
     access_log  /var/log/nginx/access.log  main;
 
