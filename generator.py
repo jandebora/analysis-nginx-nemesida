@@ -17,6 +17,7 @@ Author: Carlos Cagigao Bravo
 
 import argparse
 from pwn import log
+import re
 
 # =====================================
 # Constant variables
@@ -35,6 +36,7 @@ OUTPUT_VARIABLE_NAME = "output"
 
 URI_FILE = ".uri"
 RAW_FILE = "-raw"
+SLASH = "/"
 WARN_FILE = "generator.warn"
 LOG_INFO_MAIN = "Generating URI file..."
 URI_LOG_WARN = "WARNING: Unrecognized uris detected. Check {} file".format(WARN_FILE)
@@ -96,6 +98,34 @@ def add_required_arguments(required_arguments_group):
     required_arguments_group.add_argument(INPUT_ARG, help=INPUT_HELP, metavar=INPUT_VARIABLE_NAME, \
         dest=INPUT_VARIABLE_NAME, required=True)
 
+def get_raw_uri_file_compiled_pattern():
+    """Creates the compiled pattern for -raw.uri files
+
+    :return: compiled pattern
+    :rtype: compiled pattern in re library
+
+    Example of valid patterns:
+    15 /..//etc/passwd
+    21 /html/en/xprtCmd.html
+    """
+    return re.compile(r'\d+ (?P<uri>.+)')
+
+def uri_fixer(uri):
+    """Fixes the uri parsed as an argument adding it a slash if it doesn't have one.
+
+    :param uri: valid URI
+    :type uri: string
+
+    :return: fixed uri
+    :rtype: string
+
+    Examples:
+    '%20OR%201=1;%20--%20""}}"' => '/%20OR%201=1;%20--%20""}}"'
+    '/..//etc/passwd' => '/..//etc/passwd'
+    """
+    if uri[0] != SLASH:
+        return SLASH + uri
+    return uri
 
 def main(args):
     """Main function.
@@ -103,7 +133,7 @@ def main(args):
     Parses the raw uri file and generates a new file without 
     length number at the beginning of the line
 
-    If the line does not contains '/' or is an invalid URI, a warning log will be shown
+    If the line is empty a warning log will be shown
 
     :param args: command-line retrieved arguments
     :type args: ArgumentParser.parse_args()
@@ -119,14 +149,18 @@ def main(args):
     try:
         with open(args.input, 'r', encoding='ISO-8859-1', errors='ignore') as file:
             count = 1
+            raw_cp = get_raw_uri_file_compiled_pattern()
             for line in file:
-                first_spacebar = line.find('/')
-                if (first_spacebar > 0):
-                    line_parsed = line[first_spacebar:]
-                    file_out.write(line_parsed)
+                result = raw_cp.search(line)
+                if result is not None:
+                    uri_first_index = result.span('uri')[0]
+                    uri = uri_fixer(line[uri_first_index:])
+                elif len(line)>0:
+                    uri = uri_fixer(line)
                 else:
                     exist_warnings = True
                     file_warn.write(URI_WARN.format(count, line))
+                file_out.write(uri)
                 count += 1
             file.close()
         file_out.close()
