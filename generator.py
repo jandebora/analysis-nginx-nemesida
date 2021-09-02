@@ -152,6 +152,7 @@ def main(args):
             raw_cp = get_raw_uri_file_compiled_pattern()
             for line in file:
                 result = raw_cp.search(line)
+                uri = ''
                 if result is not None:
                     uri_first_index = result.span('uri')[0]
                     uri = uri_fixer(line[uri_first_index:])
@@ -160,7 +161,7 @@ def main(args):
                 else:
                     exist_warnings = True
                     file_warn.write(URI_WARN.format(count, line))
-                file_out.write(uri)
+                if len(uri) > 0: file_out.write(uri)
                 count += 1
             file.close()
         file_out.close()
