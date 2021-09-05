@@ -173,10 +173,13 @@ python analyzer.py -e logs/error.log -a logs/access.log -id 123456789
 ```
 Script that creates .attacks file from .index, .clean and .uri files
 
-Usage: comparer.py [-h] -f file_location -id id
+usage: comparer.py [-h] [-a access_log] -f file_location -id id
 
 optional arguments:
   -h, --help        show this help message and exit
+  -a access_log     Nginx access log file which contains information about
+                    access to the server. By default:
+                    /var/log/nginx/access.log
 
 required arguments:
   -f file_location  File that contains some URIs to launch. This file must be
@@ -186,5 +189,22 @@ required arguments:
 
 Ejemplo de uso:
 ```
-python comparer.py -f 0days100.uri -id 123456789 
+python comparer.py -f 0days100.uri -id 123456789 -a logs/access.log
+```
+
+## Lanzamiento de conjunto de datos Biblio e Inves: dataset_looper.sh
+```
+Script that loops into dataset location and launches and analyzes
+every .uri file contained in the folder
+
+usage: ./dataset_looper dataset_name dataset_location
+
+required arguments:
+"dataset_name":         Name of dataset, valid values: "biblio" and "inves"
+"dataset_location":     Dataset location (Biblio.uri or INVES.uri folder)
+```
+
+Ejemplo de uso:
+```
+./dataset_looper biblio ~/home/usuario/datasets/Biblio.uri/
 ```
