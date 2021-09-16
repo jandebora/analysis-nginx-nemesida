@@ -1,6 +1,6 @@
-"""Script that creates .attacks file from .index, .clean and .uri files
+"""Script that creates .attacks file from .index, .clean and access.log files
 
-Usage: comparer.py [-h] [-a access_log] -f file_location -id id
+Usage: comparer.py [-h] [-a access_log] -id id
 
 optional arguments:
   -h, --help        show this help message and exit
@@ -9,8 +9,6 @@ optional arguments:
                     /var/log/nginx/access.log
 
 required arguments:
-  -f file_location  File that contains some URIs to launch. This file must be
-                    formatted previously
   -id id            Numeric value added to idenfity generated files
 
 Author: Carlos Cagigao Bravo
@@ -24,16 +22,12 @@ import re
 # =====================================
 # Constant variables
 # =====================================
-DESCRIPTION = "Script that creates .attacks file from .index, .clean and .uri files"
+DESCRIPTION = "Script that creates .attacks file from .index, .clean and access.log files"
 REQUIRED_ARGS = "required arguments"
 
 IDENTIFIER_ARG = "-id"
 IDENTIFIER_HELP = "Numeric value added to idenfity generated files"
 IDENTIFIER_VARIABLE_NAME = "id"
-
-FILE_ARG = "-f"
-FILE_HELP = "File that contains some URIs to launch. This file must be formatted previously"
-FILE_VARIABLE_NAME = "file_location"
 
 ACCESS_LOG_ARG = "-a"
 ACCESS_LOG_DEFAULT = "/var/log/nginx/access.log"
@@ -87,8 +81,6 @@ def add_required_arguments(required_arguments_group):
     :param required_arguments_group: group added to ArgumentParser
     :type required_arguments_group: ArgumentParser.add_argument_group()
     """
-    required_arguments_group.add_argument(FILE_ARG, help=FILE_HELP, metavar=FILE_VARIABLE_NAME, \
-        dest=FILE_VARIABLE_NAME, required=True)
     required_arguments_group.add_argument(IDENTIFIER_ARG, help=IDENTIFIER_HELP, \
         dest=IDENTIFIER_VARIABLE_NAME, metavar=IDENTIFIER_VARIABLE_NAME, type=int, required=True)
 
@@ -120,7 +112,7 @@ def get_access_log_compiled_pattern():
     """
     return re.compile(r'"request_id\":\"(?P<id>[a-zA-Z0-9]+)\" ')
 
-def get_attacks_header(index_file_name, clean_file_name, uri_file_location):
+def get_attacks_header(index_file_name, clean_file_name, access_log_file):
     """Defines the header for .attack file
 
     :param index_file_name: name of .index file
@@ -137,7 +129,7 @@ def get_attacks_header(index_file_name, clean_file_name, uri_file_location):
     index_line_numbers = index_line_numbers.split(' ')[0].replace("b'", "")
     clean_line_numbers = subprocess.check_output(['wc', '-l', clean_file_name]).__str__()
     clean_line_numbers = clean_line_numbers.split(' ')[0].replace("b'", "")
-    uri_line_numbers = subprocess.check_output(['wc', '-l', uri_file_location]).__str__()
+    uri_line_numbers = subprocess.check_output(['wc', '-l', access_log_file]).__str__()
     uri_line_numbers = int(uri_line_numbers.split(' ')[0].replace("b'", ""))
 
     return ATTACKS_FILE_HEADER.format(uri_line_numbers, clean_line_numbers, index_line_numbers)
@@ -198,7 +190,7 @@ def main(args):
     clean_file_name = ANALYSIS_FILE_NAME.format(args.id, CLEAN_EXT)
     attacks_file_name = ANALYSIS_FILE_NAME.format(args.id, ATTACKS_EXT)
 
-    header = get_attacks_header(index_file_name, clean_file_name, args.file_location)
+    header = get_attacks_header(index_file_name, clean_file_name, args.access_log)
     attacks_file = open(attacks_file_name, 'w')
     attacks_file.write(header)
     compare_access_log_and_index(args.access_log, index_file_name, attacks_file)
