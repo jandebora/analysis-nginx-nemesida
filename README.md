@@ -128,9 +128,9 @@ python generator.py -i 0days-raw.uri
 
 ## Lanzador de URIs: launcher.py
 ```
-Script that launches some URIs to specific URL.
+Script that launches some URIs to specific URL
 
-Usage: launcher.py [-h] [-u url] [-p port] [-f file_location]
+Usage: launcher.py [-h] [-u url] [-p port] -f file_location
 
 optional arguments:
   -h, --help        show this help message and exit
@@ -138,8 +138,10 @@ optional arguments:
                     configuration file. By default: 'http://localhost'
   -p port           Specific port to launch the URIs from the file. By
                     default: '80'
+
+required arguments:
   -f file_location  File that contains some URIs to launch. This file must be
-                    formatted previously.
+                    formatted previously
 ```
 
 Ejemplo de uso:
@@ -171,25 +173,22 @@ python analyzer.py -e logs/error.log -a logs/access.log -id 123456789
 
 ## Comparador de ficheros del análisis: comparer.py
 ```
-Script that creates .attacks file from .index, .clean and .uri files
+Script that creates .attacks file from .index, .clean and access.log files
 
-usage: comparer.py [-h] [-a access_log] -f file_location -id id
+Usage: comparer.py [-h] [-a access_log] -id id
 
 optional arguments:
-  -h, --help        show this help message and exit
-  -a access_log     Nginx access log file which contains information about
-                    access to the server. By default:
-                    /var/log/nginx/access.log
+  -h, --help     show this help message and exit
+  -a access_log  Nginx access log file which contains information about access
+                 to the server. By default: /var/log/nginx/access.log
 
 required arguments:
-  -f file_location  File that contains some URIs to launch. This file must be
-                    formatted previously
-  -id id            Numeric value added to idenfity generated files
+  -id id         Numeric value added to idenfity generated files
 ```
 
 Ejemplo de uso:
 ```
-python comparer.py -f 0days100.uri -id 123456789 -a logs/access.log
+python comparer.py -id 123456789 -a logs/access.log
 ```
 
 ## Lanzamiento de conjunto de datos Biblio e Inves: dataset_looper.sh

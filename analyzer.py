@@ -1,16 +1,15 @@
-"""Script that parses Nemesida log files and generates a .index and .clean files
-recovering necessary information to the research.
+"""Script that creates .attacks file from .index, .clean and access.log files
 
-Usage: analyzer.py [-h] [-e error_log] [-a access_log] [-id id]
+Usage: comparer.py [-h] [-a access_log] -id id
 
 optional arguments:
   -h, --help     show this help message and exit
-  -e error_log   Nginx error log file which contains information about
-                 Nemesida blocked urls. By default: /var/log/nginx/error.log
   -a access_log  Nginx access log file which contains information about access
                  to the server. By default: /var/log/nginx/access.log
-  -id id         Numeric value added to idenfity generated files. By default
-                 is the current timestamp: ${current_timestamp}
+
+required arguments:
+  -id id         Numeric value added to idenfity generated files
+
 
 Author: Carlos Cagigao Bravo
 """

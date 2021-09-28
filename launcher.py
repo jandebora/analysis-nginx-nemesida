@@ -1,6 +1,6 @@
-"""Script that launches some URIs to specific URL.
+"""Script that launches some URIs to specific URL
 
-Usage: launcher.py [-h] [-u url] [-p port] [-f file_location]
+Usage: launcher.py [-h] [-u url] [-p port] -f file_location
 
 optional arguments:
   -h, --help        show this help message and exit
@@ -8,8 +8,10 @@ optional arguments:
                     configuration file. By default: 'http://localhost'
   -p port           Specific port to launch the URIs from the file. By
                     default: '80'
+
+required arguments:
   -f file_location  File that contains some URIs to launch. This file must be
-                    formatted previously.
+                    formatted previously
 
 Author: Carlos Cagigao Bravo
 """
