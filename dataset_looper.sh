@@ -142,8 +142,8 @@ launchBiblio() {
 }
 
 launchInves() {
-    biblioLocation="$LOCATION/*.uri"
-    for file in $biblioLocation; do
+    invesLocation="$LOCATION/*.uri"
+    for file in $invesLocation; do
         printf "\n${greenColour}Processing file $file...${endColour}\n"
         getFileName $file
         getFileDate $fileName
