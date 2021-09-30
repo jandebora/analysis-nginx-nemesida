@@ -1,28 +1,28 @@
 # Analysis NGINX Nemesida
-Estudio de detección de ataques a servidores Web basados en URIs HTTP con IDS Nemesida
+Detection research on attacks on Web servers based on HTTP URIs with Nemesida IDS
 
-# Pre-requisitos
-Todo este estudio ha sido ejecutado en una máquina CentOS 7 con las siguientes especificaciones (```lsb_release -a```):
+# Pre requirements
+All this study has been executed on a CentOS 7 machine with the following specifications (```lsb_release -a```):
 * LSB_version: core-4.1-amd64:core-4.1-noarch
 * Distributor ID: CentOS
 * Description: CentOS Linux release 7.9.2009 (Core)
 * Release: 7.9.2009
 * Codename: Core
 
-# Instalación Nemesida WAF
+# Nemesida WAF setup
 
-En primer lugar seguimos la [guía de instalación](https://nemesida-waf.com/about/1701) del Web Application Firewall Nemesida.
+First of all follow the [installation guide](https://nemesida-waf.com/about/1701) of Nemesida WAF.
 
-## Nemesida como IDS
-Con objeto de no bloquear los ataques y simplemente ver cuales de las urls enviadas serían bloqueadas por las reglas del WAF, vamos a colocar a Nemesida como un IDS, impidiendo los bloqueos.
+## Nemesida on IDS mode
+In order to don't block the attacks and see which of the urls sent would be blocked by the WAF rules, we are going to place Nemesida as an IDS, preventing the blocks.
 
-Para ello simplemente hay que modificar en el archivo ```/etc/nginx/nwaf/conf/global/nwaf.conf``` con el siguiente valor:
+To do this you simply have to modify the file ```/etc/nginx/nwaf/conf/global/nwaf.conf``` with the following value:
 
 ```
 nwaf_limit rate=5r/m block_time=0;
 ```
-## Configuración del access_log
-Con motivo de poder relacionar el log de error con el de accesos, debemos asegurar que el fichero ```/etc/nginx/nginx.conf``` tenga la siguiente configuración:
+## access_log setup
+In order to be able to relate the error log with the access log, we must ensure that the file ```/etc/nginx/nginx.conf``` has the following configuration:
 
 ```
 http {
@@ -41,14 +41,14 @@ http {
 
 Se ha añadido la última linea del ```log_format``` para poder identificar las peticiones que analiza nuestro WAF.
 
-## Nemesida en docker
-Para configurar nemesida en un contenedor de docker hay que seguir la siguiente guía: [https://nemesida-waf.com/manuals/2685](https://nemesida-waf.com/manuals/2685).
+## Nemesida on docker
+To configure nemesida in a docker container you must follow the following guide: [https://nemesida-waf.com/manuals/2685](https://nemesida-waf.com/manuals/2685).
 
-Una vez configurado podemos hacer uso del archivo ```docker-compose.yml``` para ejecutarlo de forma más cómoda.
+Once configured we can use the file ```docker-compose.yml``` to run it more comfortably.
 
-# Configuración environment Python3
+# Python3 environment setup
 
-Con objeto de no cargar nuestra versión de Python de nuestro sistema operativo con librerías indeseadas, vamos a hacer uso de los environments que nos aporta. Para ello tenemos que ejecutar los siguientes comandos para usar e instalar las librerías en nuestro entorno.
+In order to don't load our Python version of our operating system with unwanted libraries, we are going to make use of the environments that it gives us. For this we have to execute the following commands to use and install the libraries in our environment.
 
 ```bash
 python3 -m venv venv
@@ -56,17 +56,17 @@ source venv/bin/activate
 pip3 install --upgrade pip
 pip3 install -r requirements/requirements
 ```
-Una vez hecho esto estaremos preparados para ejecutar nuestros scripts.
+Once this is done we are ready to run our scripts.
 
-Si en algún momento se desea salir del entorno que tenemos activado simplemente tenemos que ejecutar el siguiente comando en nuestra consola:
+If at any time you want to leave the environment that we have activated, we simply have to execute the following command in our console:
 
 ```bash
 deactivate
 ```
 
-# Funcionamiento
+# Running the tool
 
-## Todo en uno: start.py
+## All in one: start.py
 
 ```
 Script that launches all parts of Nemesida WAF Analysis, in order: generator,
@@ -97,13 +97,13 @@ required arguments:
   -id id            Numeric value added to idenfity generated files
 ```
 
-Ejemplo de uso típico:
+Example:
 
 ```
 python start.py -i 0days100-raw.uri -f 0days100.uri -id 123456 -e logs/error.log -a logs/access.log
 ```
 
-## Generador de fichero .uri: generator.py
+## Generator of .uri file: generator.py
 
 ```
 Script that generates a .uri file from a -raw.uri file. This script has been
@@ -120,13 +120,13 @@ required arguments:
   -i input    Input file to be parsed in RAW format (fileName-raw.uri)
 ```
 
-Ejemplo de uso:
+Example:
 
 ``` 
 python generator.py -i 0days-raw.uri
 ```
 
-## Lanzador de URIs: launcher.py
+## URI Launcher: launcher.py
 ```
 Script that launches some URIs to specific URL
 
@@ -144,12 +144,12 @@ required arguments:
                     formatted previously
 ```
 
-Ejemplo de uso:
+Example:
 ```
 python launcher.py -f 0days.uri
 ```
 
-## Analizador de logs: analyzer.py
+## Logs analyzer: analyzer.py
 ```
 Script that parses Nemesida log files and generates a .index and .clean files
 recovering necessary information to the research.
@@ -166,12 +166,12 @@ optional arguments:
                  is the current timestamp: ${current_timestamp}
 ```
 
-Ejemplo de uso:
+Example:
 ```
 python analyzer.py -e logs/error.log -a logs/access.log -id 123456789
 ```
 
-## Comparador de ficheros del análisis: comparer.py
+## Analysis files comparer: comparer.py
 ```
 Script that creates .attacks file from .index, .clean and access.log files
 
@@ -186,12 +186,12 @@ required arguments:
   -id id         Numeric value added to idenfity generated files
 ```
 
-Ejemplo de uso:
+Example:
 ```
 python comparer.py -id 123456789 -a logs/access.log
 ```
 
-## Lanzamiento de conjunto de datos Biblio e Inves: dataset_looper.sh
+## Launcher of dataset Biblio and INVES: dataset_looper.sh
 ```
 Script that loops into dataset location and launches and analyzes
 every .uri file contained in the folder
@@ -203,7 +203,7 @@ required arguments:
 "dataset_location":     Dataset location (Biblio.uri or INVES.uri folder)
 ```
 
-Ejemplo de uso:
+Example:
 ```
 ./dataset_looper biblio ~/home/usuario/datasets/Biblio.uri/
 ```
