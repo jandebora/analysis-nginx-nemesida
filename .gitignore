@@ -133,9 +133,9 @@ logs/
 
 # Generated files and folders
 /data
-*.clean
-*.index
-*.attacks
-*.warn
-*.uri
+# *.clean
+# *.index
+# *.attacks
+# *.warn
+# *.uri
 *.txt
