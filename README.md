@@ -191,7 +191,7 @@ Example:
 python comparer.py -id 123456789 -a logs/access.log
 ```
 
-## Launcher of dataset Biblio and INVES: dataset_looper.sh
+## Biblio and INVES dataset launcher: dataset_looper.sh
 ```
 Script that loops into dataset location and launches and analyzes
 every .uri file contained in the folder
