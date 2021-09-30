@@ -309,7 +309,7 @@ def error_log_analysis(error_log_arg, index_file_name):
             else:
                 list_pos.pop(count_file_idx)
                 list_length -= 1
-        if len(nattacks_line) > len(index_line):
+        if len(nattacks_line) >= len(index_line):
             nattacks_line = add_string_from_index(nattacks_line, result_index.end(), \
                 NATTACKS_COUNT.format(nattacks_count))
             print(nattacks_line, end='')
