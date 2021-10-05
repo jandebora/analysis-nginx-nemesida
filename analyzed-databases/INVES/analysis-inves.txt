@@ -1,0 +1,123 @@
+localhost_access_log.2018-05-19-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[280961] input, [280910] clean, [51] attacks
+
+localhost_access_log.2018-05-01-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[344382] input, [344310] clean, [72] attacks
+
+localhost_access_log.2018-05-15-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[435844] input, [435755] clean, [89] attacks
+
+localhost_access_log.2018-05-03-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[422175] input, [421980] clean, [195] attacks
+
+localhost_access_log.2018-05-14-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[397462] input, [397331] clean, [131] attacks
+
+localhost_access_log.2018-05-25-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[533758] input, [533719] clean, [39] attacks
+
+localhost_access_log.2018-05-23-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[408554] input, [408478] clean, [76] attacks
+
+localhost_access_log.2018-05-22-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[466141] input, [466069] clean, [72] attacks
+
+localhost_access_log.2018-05-26-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[308497] input, [308385] clean, [112] attacks
+
+localhost_access_log.2018-05-27-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[350613] input, [350580] clean, [33] attacks
+
+localhost_access_log.2018-05-21-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[463169] input, [462998] clean, [171] attacks
+
+localhost_access_log.2018-05-12-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[370699] input, [370685] clean, [14] attacks
+
+localhost_access_log.2018-05-11-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[473793] input, [473722] clean, [71] attacks
+
+localhost_access_log.2018-05-24-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[1673022] input, [1672974] clean, [48] attacks
+
+localhost_access_log.2018-05-31-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[462675] input, [462424] clean, [251] attacks
+
+localhost_access_log.2018-05-06-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[290079] input, [289865] clean, [214] attacks
+
+localhost_access_log.2018-05-08-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[463956] input, [463884] clean, [72] attacks
+
+localhost_access_log.2018-05-16-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[489723] input, [489702] clean, [21] attacks
+
+localhost_access_log.2018-05-20-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[291388] input, [291287] clean, [101] attacks
+
+localhost_access_log.2018-05-29-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[486823] input, [486645] clean, [178] attacks
+
+localhost_access_log.2018-05-17-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[434309] input, [434292] clean, [17] attacks
+
+localhost_access_log.2018-05-05-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[291704] input, [291679] clean, [25] attacks
+
+localhost_access_log.2018-05-10-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[423099] input, [423079] clean, [20] attacks
+
+localhost_access_log.2018-05-30-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[436678] input, [436640] clean, [38] attacks
+
+localhost_access_log.2018-05-04-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[392592] input, [392550] clean, [42] attacks
+
+localhost_access_log.2018-05-09-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[425453] input, [425440] clean, [13] attacks
+
+localhost_access_log.2018-05-18-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[368686] input, [368655] clean, [31] attacks
+
+localhost_access_log.2018-05-13-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[308575] input, [308556] clean, [19] attacks
+
+localhost_access_log.2018-05-02-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[582982] input, [582890] clean, [92] attacks
+
+localhost_access_log.2018-05-07-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[472665] input, [472570] clean, [95] attacks
+
+localhost_access_log.2018-05-28-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[601070] input, [600922] clean, [148] attacks

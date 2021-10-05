@@ -1,0 +1,692 @@
+ssl_access_log-20170620-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[273856] input, [273856] clean, [0] attacks
+
+ssl_access_log-20170609-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[266939] input, [266933] clean, [6] attacks
+
+ssl_access_log-20170618-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[106183] input, [106183] clean, [0] attacks
+
+ssl_access_log-20170601-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[333260] input, [333259] clean, [1] attacks
+
+ssl_access_log-20170629-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[222827] input, [222822] clean, [5] attacks
+
+ssl_access_log-20170602-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[315664] input, [315653] clean, [11] attacks
+
+ssl_access_log-20170627-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[232434] input, [232432] clean, [2] attacks
+
+ssl_access_log-20170626-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[79878] input, [79878] clean, [0] attacks
+
+ssl_access_log-20170625-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[87852] input, [87852] clean, [0] attacks
+
+ssl_access_log-20170614-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[261972] input, [261972] clean, [0] attacks
+
+ssl_access_log-20170617-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[208866] input, [208865] clean, [1] attacks
+
+ssl_access_log-20170622-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[264856] input, [264855] clean, [1] attacks
+
+ssl_access_log-20170619-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[106030] input, [106029] clean, [1] attacks
+
+ssl_access_log-20170612-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[108316] input, [108314] clean, [2] attacks
+
+ssl_access_log-20170616-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[149092] input, [149091] clean, [1] attacks
+
+ssl_access_log-20170624-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[183961] input, [183960] clean, [1] attacks
+
+ssl_access_log-20170608-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[279683] input, [279678] clean, [5] attacks
+
+ssl_access_log-20170611-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[113977] input, [113976] clean, [1] attacks
+
+ssl_access_log-20170630-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[203188] input, [203188] clean, [0] attacks
+
+ssl_access_log-20170621-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[253176] input, [253174] clean, [2] attacks
+
+ssl_access_log-20170604-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[126099] input, [126098] clean, [1] attacks
+
+ssl_access_log-20170607-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[301031] input, [301019] clean, [12] attacks
+
+ssl_access_log-20170628-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[209520] input, [209519] clean, [1] attacks
+
+ssl_access_log-20170615-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[263751] input, [263749] clean, [2] attacks
+
+ssl_access_log-20170613-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[288261] input, [288257] clean, [4] attacks
+
+ssl_access_log-20170610-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[238279] input, [238274] clean, [5] attacks
+
+ssl_access_log-20170605-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[128260] input, [128260] clean, [0] attacks
+
+ssl_access_log-20170606-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[310941] input, [310865] clean, [76] attacks
+
+ssl_access_log-20170623-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[233549] input, [233537] clean, [12] attacks
+
+ssl_access_log-20170603-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[273237] input, [273237] clean, [0] attacks
+
+ssl_access_log-20170227-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4688] input, [4688] clean, [0] attacks
+
+ssl_access_log-20170224-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16415] input, [16415] clean, [0] attacks
+
+ssl_access_log-20170220-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4767] input, [4767] clean, [0] attacks
+
+ssl_access_log-20170223-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[24813] input, [24813] clean, [0] attacks
+
+ssl_access_log-20170216-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18043] input, [18043] clean, [0] attacks
+
+ssl_access_log-20170228-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[11352] input, [11352] clean, [0] attacks
+
+ssl_access_log-20170204-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[9059] input, [9059] clean, [0] attacks
+
+ssl_access_log-20170226-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4263] input, [4263] clean, [0] attacks
+
+ssl_access_log-20170209-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16972] input, [16972] clean, [0] attacks
+
+ssl_access_log-20170207-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[14744] input, [14744] clean, [0] attacks
+
+ssl_access_log-20170212-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4297] input, [4297] clean, [0] attacks
+
+ssl_access_log-20170214-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[28901] input, [28901] clean, [0] attacks
+
+ssl_access_log-20170219-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3505] input, [3505] clean, [0] attacks
+
+ssl_access_log-20170201-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[15171] input, [15171] clean, [0] attacks
+
+ssl_access_log-20170208-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16243] input, [16243] clean, [0] attacks
+
+ssl_access_log-20170205-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3147] input, [3147] clean, [0] attacks
+
+ssl_access_log-20170213-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4805] input, [4805] clean, [0] attacks
+
+ssl_access_log-20170203-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[11627] input, [11627] clean, [0] attacks
+
+ssl_access_log-20170225-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[12086] input, [12086] clean, [0] attacks
+
+ssl_access_log-20170215-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[19340] input, [19340] clean, [0] attacks
+
+ssl_access_log-20170221-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[20572] input, [20572] clean, [0] attacks
+
+ssl_access_log-20170210-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[14468] input, [14468] clean, [0] attacks
+
+ssl_access_log-20170218-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18479] input, [18479] clean, [0] attacks
+
+ssl_access_log-20170217-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[23195] input, [23195] clean, [0] attacks
+
+ssl_access_log-20170222-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[20640] input, [20640] clean, [0] attacks
+
+ssl_access_log-20170202-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[11938] input, [11938] clean, [0] attacks
+
+ssl_access_log-20170206-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3242] input, [3242] clean, [0] attacks
+
+ssl_access_log-20170211-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[14885] input, [14885] clean, [0] attacks
+
+ssl_access_log-20170506-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4875] input, [4875] clean, [0] attacks
+
+ssl_access_log-20170519-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[37874] input, [37874] clean, [0] attacks
+
+ssl_access_log-20170522-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[160998] input, [160998] clean, [0] attacks
+
+ssl_access_log-20170513-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[11598] input, [11598] clean, [0] attacks
+
+ssl_access_log-20170526-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[363028] input, [363022] clean, [6] attacks
+
+ssl_access_log-20170504-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5704] input, [5704] clean, [0] attacks
+
+ssl_access_log-20170521-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[134555] input, [134555] clean, [0] attacks
+
+ssl_access_log-20170514-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4660] input, [4660] clean, [0] attacks
+
+ssl_access_log-20170512-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16525] input, [16525] clean, [0] attacks
+
+ssl_access_log-20170507-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3132] input, [3132] clean, [0] attacks
+
+ssl_access_log-20170528-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[146347] input, [146345] clean, [2] attacks
+
+ssl_access_log-20170503-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5724] input, [5724] clean, [0] attacks
+
+ssl_access_log-20170531-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[206661] input, [206660] clean, [1] attacks
+
+ssl_access_log-20170509-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[19555] input, [19555] clean, [0] attacks
+
+ssl_access_log-20170530-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[390806] input, [390806] clean, [0] attacks
+
+ssl_access_log-20170517-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18539] input, [18539] clean, [0] attacks
+
+ssl_access_log-20170525-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[392381] input, [392377] clean, [4] attacks
+
+ssl_access_log-20170510-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18555] input, [18555] clean, [0] attacks
+
+ssl_access_log-20170520-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[265444] input, [265443] clean, [1] attacks
+
+ssl_access_log-20170516-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[17701] input, [17701] clean, [0] attacks
+
+ssl_access_log-20170511-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[17072] input, [17072] clean, [0] attacks
+
+ssl_access_log-20170527-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[278325] input, [278320] clean, [5] attacks
+
+ssl_access_log-20170505-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5233] input, [5233] clean, [0] attacks
+
+ssl_access_log-20170529-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[138725] input, [138725] clean, [0] attacks
+
+ssl_access_log-20170502-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3098] input, [3098] clean, [0] attacks
+
+ssl_access_log-20170508-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5096] input, [5096] clean, [0] attacks
+
+ssl_access_log-20170524-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[430686] input, [430679] clean, [7] attacks
+
+ssl_access_log-20170515-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4786] input, [4786] clean, [0] attacks
+
+ssl_access_log-20170518-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16822] input, [16822] clean, [0] attacks
+
+ssl_access_log-20170501-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2637] input, [2637] clean, [0] attacks
+
+ssl_access_log-20170523-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[454808] input, [454782] clean, [26] attacks
+
+ssl_access_log-20170321-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[19413] input, [19413] clean, [0] attacks
+
+ssl_access_log-20170317-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[17973] input, [17969] clean, [4] attacks
+
+ssl_access_log-20170327-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5371] input, [5371] clean, [0] attacks
+
+ssl_access_log-20170303-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18819] input, [18819] clean, [0] attacks
+
+ssl_access_log-20170302-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[21058] input, [21058] clean, [0] attacks
+
+ssl_access_log-20170307-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[20216] input, [20216] clean, [0] attacks
+
+ssl_access_log-20170314-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[20366] input, [20366] clean, [0] attacks
+
+ssl_access_log-20170328-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18495] input, [18495] clean, [0] attacks
+
+ssl_access_log-20170311-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[12876] input, [12876] clean, [0] attacks
+
+ssl_access_log-20170308-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[19947] input, [19947] clean, [0] attacks
+
+ssl_access_log-20170325-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[12093] input, [12093] clean, [0] attacks
+
+ssl_access_log-20170315-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[19825] input, [19825] clean, [0] attacks
+
+ssl_access_log-20170326-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4670] input, [4670] clean, [0] attacks
+
+ssl_access_log-20170324-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[17029] input, [17029] clean, [0] attacks
+
+ssl_access_log-20170305-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4561] input, [4561] clean, [0] attacks
+
+ssl_access_log-20170304-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[14881] input, [14881] clean, [0] attacks
+
+ssl_access_log-20170316-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[20389] input, [20389] clean, [0] attacks
+
+ssl_access_log-20170313-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4935] input, [4935] clean, [0] attacks
+
+ssl_access_log-20170318-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[12469] input, [12469] clean, [0] attacks
+
+ssl_access_log-20170320-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4373] input, [4373] clean, [0] attacks
+
+ssl_access_log-20170329-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18782] input, [18782] clean, [0] attacks
+
+ssl_access_log-20170309-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18849] input, [18849] clean, [0] attacks
+
+ssl_access_log-20170322-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[19433] input, [19433] clean, [0] attacks
+
+ssl_access_log-20170301-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[6465] input, [6465] clean, [0] attacks
+
+ssl_access_log-20170306-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5728] input, [5728] clean, [0] attacks
+
+ssl_access_log-20170319-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3294] input, [3294] clean, [0] attacks
+
+ssl_access_log-20170331-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[15996] input, [15996] clean, [0] attacks
+
+ssl_access_log-20170310-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[7693] input, [7693] clean, [0] attacks
+
+ssl_access_log-20170323-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18742] input, [18742] clean, [0] attacks
+
+ssl_access_log-20170312-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[3580] input, [3580] clean, [0] attacks
+
+ssl_access_log-20170330-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18901] input, [18901] clean, [0] attacks
+
+ssl_access_log-20170407-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[14665] input, [14665] clean, [0] attacks
+
+ssl_access_log-20170406-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16862] input, [16862] clean, [0] attacks
+
+ssl_access_log-20170427-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16405] input, [16405] clean, [0] attacks
+
+ssl_access_log-20170413-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4565] input, [4565] clean, [0] attacks
+
+ssl_access_log-20170412-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[5519] input, [5519] clean, [0] attacks
+
+ssl_access_log-20170430-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2915] input, [2915] clean, [0] attacks
+
+ssl_access_log-20170403-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4086] input, [4086] clean, [0] attacks
+
+ssl_access_log-20170401-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[12959] input, [12959] clean, [0] attacks
+
+ssl_access_log-20170418-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18600] input, [18600] clean, [0] attacks
+
+ssl_access_log-20170422-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[12472] input, [12472] clean, [0] attacks
+
+ssl_access_log-20170429-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[10905] input, [10905] clean, [0] attacks
+
+ssl_access_log-20170417-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4735] input, [4735] clean, [0] attacks
+
+
+
+ssl_access_log-20170419-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18466] input, [18466] clean, [0] attacks
+
+ssl_access_log-20170405-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[17407] input, [17407] clean, [0] attacks
+
+ssl_access_log-20170404-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[17352] input, [17352] clean, [0] attacks
+
+ssl_access_log-20170423-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4223] input, [4223] clean, [0] attacks
+
+ssl_access_log-20170402-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4017] input, [4017] clean, [0] attacks
+
+ssl_access_log-20170408-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[9465] input, [9465] clean, [0] attacks
+
+ssl_access_log-20170409-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2275] input, [2275] clean, [0] attacks
+
+ssl_access_log-20170414-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2582] input, [2582] clean, [0] attacks
+
+ssl_access_log-20170411-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[6154] input, [6154] clean, [0] attacks
+
+ssl_access_log-20170425-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[15640] input, [15638] clean, [2] attacks
+
+ssl_access_log-20170410-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4046] input, [4046] clean, [0] attacks
+
+ssl_access_log-20170426-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16202] input, [16202] clean, [0] attacks
+
+ssl_access_log-20170424-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[4780] input, [4780] clean, [0] attacks
+
+ssl_access_log-20170428-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[15448] input, [15448] clean, [0] attacks
+
+ssl_access_log-20170415-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2252] input, [2252] clean, [0] attacks
+
+ssl_access_log-20170420-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[18333] input, [18333] clean, [0] attacks
+
+ssl_access_log-20170421-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[16587] input, [16587] clean, [0] attacks
+
+ssl_access_log-20170416-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2856] input, [2850] clean, [6] attacks
+
+ssl_access_log-20170717-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[53398] input, [53398] clean, [0] attacks
+
+
+
+ssl_access_log-20170709-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[56851] input, [56850] clean, [1] attacks
+
+ssl_access_log-20170702-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[67448] input, [67448] clean, [0] attacks
+
+ssl_access_log-20170713-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[142917] input, [142913] clean, [4] attacks
+
+ssl_access_log-20170707-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[172991] input, [172988] clean, [3] attacks
+
+ssl_access_log-20170703-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[72891] input, [72890] clean, [1] attacks
+
+ssl_access_log-20170701-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[161988] input, [161955] clean, [33] attacks
+
+ssl_access_log-20170711-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[148533] input, [148533] clean, [0] attacks
+
+ssl_access_log-20170706-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[181982] input, [181982] clean, [0] attacks
+
+ssl_access_log-20170716-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[43363] input, [43363] clean, [0] attacks
+
+ssl_access_log-20170714-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[138964] input, [138964] clean, [0] attacks
+
+ssl_access_log-20170708-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[123445] input, [123382] clean, [63] attacks
+
+ssl_access_log-20170705-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[186255] input, [186255] clean, [0] attacks
+
+ssl_access_log-20170704-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[187261] input, [187261] clean, [0] attacks
+
+ssl_access_log-20170710-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[58418] input, [58417] clean, [1] attacks
+
+ssl_access_log-20170715-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[109441] input, [109441] clean, [0] attacks
+
+ssl_access_log-20170712-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[145900] input, [145900] clean, [0] attacks
+
+ssl_access_log-20170131-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[8705] input, [8705] clean, [0] attacks
+
+ssl_access_log-20170128-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[1556] input, [1556] clean, [0] attacks
+
+ssl_access_log-20170129-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[461] input, [461] clean, [0] attacks
+
+
+ssl_access_log-20170130-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[467] input, [467] clean, [0] attacks
+
+ssl_access_log-20170127-raw.uri 
+---------------------- Statistics of URIs analyzed------------------------
+[2326] input, [2326] clean, [0] attacks
